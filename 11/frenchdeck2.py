@@ -2,7 +2,7 @@ import collections
 
 Card = collections.namedtuple('Card', ['rank', 'suit'])
 
-class FrenchDeck:
+class FrenchDeck(collections.abc.MutableSequence):
     ranks = [str(n) for n in range(2,11)] + list("JQKA")
     suits = 'spades diamonds clubs hearts'.split()
 
@@ -19,7 +19,8 @@ class FrenchDeck:
         assert isinstance(card,Card)
         self._cards[postion] = card
 
-    # def __iter__(self):
-    #     pass
+    def __delitem__(self, position):  #inherit MutabelSequence must apply __delitem__ function
+        del self._cards[position]
 
-
+    def insert(self, position, value):
+        self._cards.insert(position,value)

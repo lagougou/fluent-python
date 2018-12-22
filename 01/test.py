@@ -1,9 +1,9 @@
 from frenchdeck import FrenchDeck,Card
 from vector import Vector
-
+from random import shuffle
 beer_card = Card('7','diamond')
-print(beer_card)
 
+print (type(beer_card))
 deck = FrenchDeck()
 print(len(deck))
 
@@ -24,6 +24,6 @@ for card  in sorted(deck,key=spades_high):
     print(card)
 
 Vector(2,4)
-
+shuffle(deck)
 print(deck._cards)
 print(deck[12::13])
